@@ -24,12 +24,13 @@ typedef NSUInteger KTDownloadManagerResponseType;
 @class KTDownloader;
 
 @interface KTDownloadManager : NSObject <KTDownloaderDelegate> {
-   id<KTDownloadManagerDelegate> downloadManagerDelegate_;
+   NSObject<KTDownloadManagerDelegate> *downloadManagerDelegate_;
+    
 @private
    NSMutableSet *downloaderTable_;
 }
 
-@property (nonatomic, assign) id<KTDownloadManagerDelegate> delegate;
+@property (nonatomic, assign) NSObject<KTDownloadManagerDelegate> *delegate;
 
 - (void)downloadDataWithURL:(NSURL *)url tag:(NSInteger)tag responseType:(KTDownloadManagerResponseType)respType;
 
